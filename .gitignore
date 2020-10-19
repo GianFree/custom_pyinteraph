@@ -1,0 +1,4 @@
+pyfferaph/*pycache*
+pyfferaph/bubu.py
+.ipynb/*
+

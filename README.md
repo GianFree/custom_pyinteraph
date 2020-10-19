@@ -16,4 +16,15 @@ and then you launch the notebook as usual,
 
 **OR**
 
-2.
+2. if you already have `jupyter-notebook` installed in the base environment
+you can simply install the kernel of the `pyfferaph` environment with:
+```
+conda activate pyfferaph
+python -m ipykernel install --user --name pyfferaph --display-name "Pyfferaph (py3.8)"
+```
+
+Now you can open a new shell in this same folder and run:
+```
+jupyter-notebook pyfferaph_example.ipynb
+```
+

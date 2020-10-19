@@ -1,0 +1,12 @@
+name: pyffe
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - mdanalysis=1.0.0
+  - networkx=2.4
+  - pandas=1.1.0
+  - scipy=1.5.2
+  - seaborn=0.10.1
+  - python=3.8
+  - notebook=6.0.3

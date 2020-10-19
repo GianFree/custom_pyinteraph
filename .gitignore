@@ -1,4 +1,7 @@
 pyfferaph/*pycache*
 pyfferaph/bubu.py
-.ipynb/*
-
+.ipynb_checkpoints/*
+example_trajs/.traj*npz
+*pdf
+*.csv
+*.dat

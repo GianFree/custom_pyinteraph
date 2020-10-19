@@ -27,4 +27,4 @@ Now you can open a new shell in this same folder and run:
 ```
 jupyter-notebook pyfferaph_example.ipynb
 ```
-
+and **change the kernel** into `Pyfferaph (py3.8)`.

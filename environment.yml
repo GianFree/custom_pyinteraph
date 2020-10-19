@@ -1,4 +1,4 @@
-name: pyffe
+name: pyfferaph
 channels:
   - conda-forge
   - defaults

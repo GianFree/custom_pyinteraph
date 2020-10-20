@@ -43,7 +43,7 @@ def cluster_plotter(network, fig_name, stride=0.1):
     y = maxclustsize
     plt.plot(x,y, '.')
     #plt.title(fig_name)
-    plt.xlabel('p_{min}')
+    plt.xlabel('$p_{min}$')
     plt.ylabel('size of the biggest cluster')
     plt.savefig(fig_name)
 
@@ -157,7 +157,7 @@ def all_shortest_path(G, source, target, threshold, terminal=False):
             print(source, target)
             print('\n')
 
-    #return paths, cr
+    return paths, cr
 
 
 def paths_to_interface(G, interface_residues, source_residues, threshold):
@@ -169,32 +169,28 @@ def paths_to_interface(G, interface_residues, source_residues, threshold):
     interactions = {k:[] for k in interface_residues}
     #print(interactions)
     for res in interface_residues:
-        	for int_res in source_residues:
-                    temp = all_shortest_path(G, res, int_res, threshold, terminal=False)
-                    if temp != None:
-                            #print(temp)
-                            interactions[res].append(temp)
+        for int_res in source_residues:
+            temp = all_shortest_path(G, res, int_res, threshold, terminal=False)
+            if temp != None:
+                #print(temp)
+                interactions[res].append(temp)
 
 
-    #print(len(interactions['GLU85']))
     for key in interactions.keys():
-            #ref_structure_suffix = os.path.splitext(args.top)[1]
-            file_name = key + '.dat' #args.top.rstrip(ref_structure_suffix) + '_' + key + '.dat'
-            #path_to_file = os.getcwd() + '/' + file_name
-            #print(path_to_file)
-            lines = 0
-            with open(file_name, 'w') as paths_file:
-                    for tupla in interactions[key]:
-                            #print(tupla)
-                            path_info = f'source node\t{key}\ntarget node\t{str(tupla[0][0][-1])}\n'
-                            cr_val = 'cr_value\t' + str(tupla[-1])+'\n'
-                            paths_file.write('\n')
-                            paths_file.write(path_info)
-                            paths_file.write(cr_val)
-                            for path in tupla[0]:
-                                    paths_file.write(str(path)+'\n')
-                                    lines += 1
-                    print(f'{lines} paths written to {file_name}')
+        file_name = key + '.dat'
+        lines = 0
+        with open(file_name, 'w') as paths_file:
+            for tupla in interactions[key]:
+                #print(tupla)
+                path_info = f'source node\t{key}\ntarget node\t{str(tupla[0][0][-1])}\n'
+                cr_val = 'cr_value\t' + str(tupla[-1])+'\n'
+                paths_file.write('\n')
+                paths_file.write(path_info)
+                paths_file.write(cr_val)
+                for path in tupla[0]:
+                    paths_file.write(str(path)+'\n')
+                    lines += 1
+        print(f'{lines} paths written to {file_name}')
 
 
 def selective_betweenness(G, source, target, sb_residue):
@@ -213,7 +209,3 @@ def selective_betweenness(G, source, target, sb_residue):
     sb = round(sb / len(paths), 2)
     print(f'source: {source} target: {target}\nselective betweenness for {sb_residue}: {sb}')
     return sb
-
-
-
-

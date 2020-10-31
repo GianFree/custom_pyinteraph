@@ -49,7 +49,7 @@ class SaltBridges(CustomAnalysis):
             self.sel_acidic = sb_dict['sel_acidic']
 
         # Basic selection
-        if (len(sb_dict['nter_sel'].strip()) != 0) and (len(sb_dict['histidine_sel'].strip() != 0)):
+        if (len(sb_dict['nter_sel'].strip()) != 0) and (len(sb_dict['histidine_sel'].strip()) != 0):
             self.sel_basic = f"({sb_dict['sel_basic']}) or ({sb_dict['nter_sel']}) or \
                                 ({sb_dict['histidine_sel']})"
         elif len(sb_dict['nter_sel'].strip()) != 0:

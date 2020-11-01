@@ -166,7 +166,7 @@ def all_shortest_paths(G, source_res, target_res, threshold):
                 #print(paths)
                 cr_index = communication_robustness(paths, threshold)
                 #print(cr_index)
-                scores = new_path_scores(paths)
+                scores = path_scores(paths)
                 max_score = max(scores.values())
                 best_paths = []
                 #print(scores)

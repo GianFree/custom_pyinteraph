@@ -1,3 +1,5 @@
+Custom implementation of the PyInteraph tool, developed by professor Elena Papaleo's lab.
+
 To install the environment with the dependecies:
 ```
 conda env create -f environment.yml
